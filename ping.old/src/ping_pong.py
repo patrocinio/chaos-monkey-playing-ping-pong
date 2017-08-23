@@ -16,7 +16,7 @@ base_url = "http://stock_price:8080/stockPrice/"
 set_url = "http://stock_table_set:8080/"
 
 def bounceBall(js):
-	print ("Bouncindg ball %s" % js)
+	print ("Bouncing ball %s" % js)
 
 def callback(ch, method, properties, body):
 	symbol = str(body, 'utf-8')
