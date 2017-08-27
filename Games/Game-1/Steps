@@ -1,0 +1,9 @@
+1. create_namespace.sh - OK
+2. deploy_mq.sh - OK
+3. build_throw_ball.sh - Failing in pushing to Docker Trusted Registry / Kube Private Registry
+4. build_ping_pong.sh 
+5. deploy_ping.sh
+6. deploy_pong.sh
+7. deploy_throw_ball.sh - Test
+
+

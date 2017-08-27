@@ -3,16 +3,16 @@ Script
 
 ====== Application Resilience
 
-1 Set - Setup
-2 Set - POD - Kill POD 
+1 Game - Gameup
+2 Game - POD - Kill POD 
 Logic:
  Flow:
      Read the ball from the queue
      Hold for 1 sec
      Release the ball to the queue
 
-3 Set - ReplicaSet - Killing Ping POD - 50% chance of the ball being on that POD
-4 Set - Save State - Redis
+3 Game - ReplicaGame - Killing Ping POD - 50% chance of the ball being on that POD
+4 Game - Save State - Redis
 
 Logic:
 Initialization:
@@ -27,7 +27,7 @@ Initialization:
      Release the ball to the queue
      Clean the cache
 
-5 Set - Multiple Player - 2 Ping POD (Ping1, Pong2), 2 Pong POD - 
+5 Game - Multiple Player - 2 Ping POD (Ping1, Pong2), 2 Pong POD - 
     - Ball on Pong POD - Things are OK
     - Ball on Ping POD - Ping1 has the ball
       - Kill Ping1 - Save State will recover from the scenario
@@ -41,7 +41,7 @@ Kube will recreate Ping2
 Ping2 will release the white ball to the queue
 Ping1 will also release the white ball to the queue
 
-6 Set - Check State
+6 Game - Check State
 
 Logic:
 Initialization:
@@ -57,14 +57,19 @@ Initialization:
        If so, release the ball on the queue
        Clean the cache
 
-7 Set - Bug
+7 Game - Bug
     If random < 0.05 kill the pod from inside
 
    
 =========================  Platform Resilience
-8 Set - Stop Node
+8 Game - Stop Node
 
-9 Set - Multiple balls
+9 Game - Multiple balls
+
+10 Game - Kill the queue
+
+11 Game - Across Clusters
+
 
 Final State 
 
