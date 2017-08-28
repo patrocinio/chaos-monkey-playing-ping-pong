@@ -2,12 +2,14 @@
 import pika
 
 PASSWORD = 'ping_pong'
-HOST = 'queue-rabbitmq.ping-pong.svc.cluster.local'
+
+# HOST = 'queue-rabbitmq.default.svc.cluster.local'
+HOST = 'localhost'
 PORT = 5672
 QUEUE = 'ping'
-BALL = 'White'
+BALL = 'white'
 
-credentials = pika.PlainCredentials('admin', PASSWORD)
+credentials = pika.PlainCredentials('user', PASSWORD)
 parameters = pika.ConnectionParameters(HOST, PORT, '/', credentials)
 
 print ("Connecting to queue at " + HOST)
