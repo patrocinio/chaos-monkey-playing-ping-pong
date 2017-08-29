@@ -3,9 +3,11 @@ import sys
 
 PASSWORD = 'ping_pong'
 
-HOST = 'queue-rabbitmq.default.svc.cluster.local'
+HOST = 'queue-rabbitmq.ping-pong.svc.cluster.local'
 #HOST = 'localhost'
 PORT = 5672
+
+channel = 0
 
 def connect ():
 	credentials = pika.PlainCredentials('user', PASSWORD)
@@ -28,4 +30,6 @@ def consume(queue_name, callback):
 	print(" [*] Waiting for messages in queue " + queue_name + ". To exit press CTRL+C")
 	sys.stdout.flush ()
 	channel.start_consuming()
+
+
 

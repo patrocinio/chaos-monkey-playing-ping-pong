@@ -11,3 +11,5 @@ spec:
     env:
       - name: QUEUE
         value: "ping"
+      - name: OTHER_QUEUE
+        value: "pong"

@@ -13,11 +13,14 @@ def init ():
 	messageChannel = messageConnection.channel()
 	messageChannel.queue_declare(queue=MESSAGE_QUEUE)
 
-def send (message):
-	print ("Sending message " + message + " to queue " + MESSAGE_QUEUE)
+def send (component, message):
+	print ("Sending message " + message + " from component " + component + " to queue " + MESSAGE_QUEUE)
+
+	m = component + ": " + message
+
 	messageChannel.basic_publish(exchange='',
                       routing_key=MESSAGE_QUEUE,
-                      body=message)
+                      body=m)
 
 
 def close ():
