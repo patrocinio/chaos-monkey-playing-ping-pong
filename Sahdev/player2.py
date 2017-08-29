@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import pika
-
-#connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+import time
 
 credentials = pika.PlainCredentials('admin', 'secretpassword')
 parameters = pika.ConnectionParameters('192.168.99.100', 32340, '/', credentials)
@@ -9,16 +8,19 @@ connection = pika.BlockingConnection(parameters)
 
 channel = connection.channel()
 
-
-channel.queue_declare(queue='table')
+channel.queue_declare(queue='pingqueue')
+channel.queue_declare(queue='pongqueue')
 
 def callback(ch, method, properties, body):
-    #print(" [x] Received ping %r" % body)
-    print("Pong")
-
+    print(" Player2 received ping %r" % body)
+    time.sleep(2)
+    channel.basic_publish(exchange='',
+                  routing_key='pongqueue',
+                  body="Ping back")
+    
 channel.basic_consume(callback,
-                      queue='table',
+                      queue='pingqueue',
                       no_ack=True)
 
-print(' [*] Waiting for ping back. To exit press CTRL+C')
+print(' Player2 is waiting for ping back. To exit press CTRL+C')
 channel.start_consuming()
