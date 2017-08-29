@@ -1,33 +1,19 @@
-#!/usr/bin/env python
-import pika
+import queue
+import sys
+import message
+import os
 
-PASSWORD = 'ping_pong'
-HOST = 'queue-rabbitmq.ping-pong.svc.cluster.local'
-PORT = 5672
-QUEUE = 'ping' # 'pong' This should be an env var
-OTHER_QUEUE = 'pong' # 'ping' This should be an env var
-BALL = 'White'
+queue = os.environment['QUEUE']
 
-def callback():
-	print ("Received a ball")
-	channel.basic_publish(exchange='',
-                      routing_key=OTHER_QUEUE, // Pong queue
-                      body=BALL)
+def callback(ch, method, properties, body):
+	print ("Received a message %s" % body)
+	message.send ("I received a %s ball" % body)
+	sys.stdout.flush ()
 
+print("I'm Ping")
+message.init ()
 
-credentials = pika.PlainCredentials('admin', PASSWORD)
-parameters = pika.ConnectionParameters(HOST, PORT, '/', credentials)
+message.send ("Hello. I am " + queue)
 
-print ("Connecting to queue at " + HOST)
-connection = pika.BlockingConnection(parameters)
-
-channel = connection.channel()
-
-channel.queue_declare(queue=QUEUE) // Ping queue
-
-channel.basic_consume(callback,
-    	                  queue=QUEUE,
-        	              no_ack=True)
-print(' [*] Waiting for messages. To exit press CTRL+C')
-channel.start_consuming()
+queue.consume(queue, callback)
 
