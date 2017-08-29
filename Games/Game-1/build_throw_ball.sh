@@ -1,2 +1,2 @@
 cd throw_ball
-./build.sh
+./build_throw_ball.sh

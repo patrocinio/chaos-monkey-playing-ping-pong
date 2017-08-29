@@ -11,4 +11,4 @@ RUN pip install requests
 COPY src/ /usr/src/app
 COPY common/src/ /usr/src/app
 
-CMD ["python", "throw_ball.py"]
+CMD ["python", "commentator.py"]
