@@ -19,4 +19,4 @@ message.send (messageChannel, "Throwing ball " + BALL)
 #                      body=BALL)
 
 print("Ball thrown")
-#connection.close()
+connection.close()

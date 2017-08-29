@@ -1,7 +1,7 @@
 import queue
 import sys
 
-QUEUE = 'message'
+MESSAGE_QUEUE = 'message'
 
 def callback(ch, method, properties, body):
 	print ("Received a message %r" % body)
@@ -10,13 +10,13 @@ def callback(ch, method, properties, body):
 def consume():
 	connection = queue.connect ()
 	channel = connection.channel()
-	channel.queue_declare(queue=QUEUE)
+	channel.queue_declare(queue=MESSAGE_QUEUE)
 
 	channel.basic_consume(callback,
-    		              queue=QUEUE,
+    		              queue=MESSAGE_QUEUE,
         		          no_ack=True)
 
-	print(" [*] Waiting for messages in queue " + QUEUE + ". To exit press CTRL+C")
+	print(" [*] Waiting for messages in queue " + MESSAGE_QUEUE + ". To exit press CTRL+C")
 	sys.stdout.flush ()
 	channel.start_consuming()
 

@@ -9,6 +9,7 @@ def init (connection):
 
 def send (channel, message):
 	print ("Sending message " + message + " to queue " + MESSAGE_QUEUE)
+	print ("Channel: %r " % channel)
 	channel.basic_publish(exchange='',
                       routing_key=MESSAGE_QUEUE,
                       body=message)
