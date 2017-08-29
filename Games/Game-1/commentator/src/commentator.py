@@ -1,29 +1,25 @@
 import queue
-import logging
+import sys
 
 QUEUE = 'message'
 
 def callback(ch, method, properties, body):
-	print ("Received a message " + body)
+	print ("Received a message %r" % body)
+	sys.stdout.flush ()
 
 def consume():
-
-	logging.basicConfig(level=logging.DEBUG)
-
 	connection = queue.connect ()
-
 	channel = connection.channel()
-
 	channel.queue_declare(queue=QUEUE)
 
 	channel.basic_consume(callback,
     		              queue=QUEUE,
         		          no_ack=True)
 
-	print(' [*] Waiting for messages. To exit press CTRL+C')
+	print(" [*] Waiting for messages in queue " + QUEUE + ". To exit press CTRL+C")
+	sys.stdout.flush ()
 	channel.start_consuming()
 
 print("Welcome to the Ping Pong solution")
-
 consume()
 
