@@ -1,4 +1,4 @@
-import queue
+import pp_queue
 import message
 
 QUEUE = 'ping'
@@ -7,7 +7,7 @@ COMPONENT = 'throw_ball'
 
 message.init ()
 
-connection = queue.connect()
+connection = pp_queue.connect()
 channel = connection.channel()
 channel.queue_declare(queue=QUEUE)
 

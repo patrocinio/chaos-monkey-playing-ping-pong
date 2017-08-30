@@ -1,15 +1,27 @@
-import queue
+import pp_queue
 import sys
 import message
 import os
 import time
+import redis
+
+CACHE='cache-redis.ping-pong.svc.cluster.local'
+#CACHE='localhost'
+
 
 queue_name = os.environ['QUEUE']
 other_queue = os.environ['OTHER_QUEUE']
 
+key = queue_name
+
 welcome_message = "I'm " +queue_name + " in Game-5"
 
+red = 0
+
 def throw_ball(ball):
+	message.send (queue_name, "Deleting key " + key)
+	red.delete(key)
+
 	message.send (queue_name, "Throwing ball %s" % ball)
 
 	channel.basic_publish(exchange='',
@@ -18,10 +30,35 @@ def throw_ball(ball):
 
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
-	message.send (queue_name, "I received a %s ball" % body)
 	sys.stdout.flush ()
+	message.send (queue_name, "I received a %s ball" % body)
+
+	# Store in cache
+	message.send (queue_name, "Storing key " + key)
+	red.set(key, body)
+
+	# Sleep a second
 	time.sleep(1)
+
+	# Throw the ball
 	throw_ball(body)
+
+def initCache():
+	print ("Initializing cache")
+	global red
+	red = redis.StrictRedis(host=CACHE, password='ping_pong')
+
+def checkCache():
+	value = red.get(key)
+	if value is None:
+		print ("Nothing in the cache")
+		message.send (queue_name, "Nothing found in the cache")
+	else:
+		# Cleans the cache
+		print ("Found a lost ball %r " % value)
+		message.send (queue_name, "Found a lost ball %r " % value)
+
+		throw_ball(value)
 
 print(welcome_message)
 
@@ -31,12 +68,16 @@ message.init ()
 message.send (queue_name, welcome_message)
 
 # Init other queue
-
-connection = queue.connect()
+connection = pp_queue.connect()
 channel = connection.channel()
 channel.queue_declare(queue=other_queue)
 
+# Init cache
+initCache()
+
+# Check cache
+checkCache()
 
 # Init queue
-queue.consume(queue_name, callback)
+pp_queue.consume(queue_name, callback)
 

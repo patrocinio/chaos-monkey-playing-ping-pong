@@ -1,4 +1,4 @@
-import queue
+import pp_queue
 import sys
 
 MESSAGE_QUEUE = 'message'
@@ -8,5 +8,5 @@ def callback(ch, method, properties, body):
 	sys.stdout.flush ()
 
 print("Welcome to the Ping Pong solution")
-queue.consume(MESSAGE_QUEUE, callback)
+pp_queue.consume(MESSAGE_QUEUE, callback)
 

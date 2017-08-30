@@ -1,4 +1,4 @@
-import queue
+import pp_queue
 import sys
 import message
 import os
@@ -30,11 +30,11 @@ message.send (queue_name, "Hello. I am " + queue_name)
 
 # Init other queue
 
-connection = queue.connect()
+connection = pp_queue.connect()
 channel = connection.channel()
 channel.queue_declare(queue=other_queue)
 
 
 # Init queue
-queue.consume(queue_name, callback)
+pp_queue.consume(queue_name, callback)
 

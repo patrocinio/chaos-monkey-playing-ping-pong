@@ -1,4 +1,4 @@
-import queue
+import pp_queue
 
 MESSAGE_QUEUE = 'message'
 
@@ -9,7 +9,7 @@ def init ():
 	global messageConnection
 	global messageChannel
 
-	messageConnection = queue.connect()
+	messageConnection = pp_queue.connect()
 	messageChannel = messageConnection.channel()
 	messageChannel.queue_declare(queue=MESSAGE_QUEUE)
 
