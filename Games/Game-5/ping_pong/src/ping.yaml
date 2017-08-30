@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ping
+  labels:
+    app: ping
+spec:
+  containers:
+  - name: ping
+    image: patrocinio/ping_pong
+    env:
+      - name: QUEUE
+        value: "ping"
+      - name: OTHER_QUEUE
+        value: "pong"
