@@ -15,4 +15,6 @@ spec:
         value: "ping"
       - name:  QUEUE 
         value: "queue-rabbitmq.ping-pong.svc.cluster.local"
+  imagePullPolicy: Always
+
 
