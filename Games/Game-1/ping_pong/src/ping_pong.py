@@ -8,7 +8,7 @@ queue_name = os.environ['QUEUE']
 other_queue = os.environ['OTHER_QUEUE']
 
 def throw_ball(ball):
-	message.send (queue_name, "Throwing ball %s" % ball)
+	message.send ("Throwing ball %s" % ball)
 
 	channel.basic_publish(exchange='',
     	                  routing_key=other_queue,
@@ -16,7 +16,7 @@ def throw_ball(ball):
 
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
-	message.send (queue_name, "I received a %s ball" % body)
+	message.send ("I received a %s ball" % body)
 	sys.stdout.flush ()
 	time.sleep(1)
 	throw_ball(body)
@@ -26,7 +26,7 @@ print("I'm " + queue_name)
 # Init message
 message.init ()
 
-message.send (queue_name, "Hello. I am " + queue_name)
+message.send ("Hello. I am " + queue_name)
 
 # Init other queue
 
