@@ -13,3 +13,7 @@ spec:
       containers:
       - name: commentator
         image: patrocinio/ping_pong_commentator
+        env:
+        - name:  QUEUE 
+          value: "queue-rabbitmq.ping-pong.svc.cluster.local"
+

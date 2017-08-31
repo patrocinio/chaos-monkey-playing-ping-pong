@@ -4,8 +4,8 @@ import message
 import os
 import time
 
-queue_name = os.environ['QUEUE']
-other_queue = os.environ['OTHER_QUEUE']
+queue_name = os.environ['QUEUE_NAME']
+other_queue = os.environ['OTHER_QUEUE_NAME']
 
 def throw_ball(ball):
 	message.send ("Throwing ball %s" % ball)

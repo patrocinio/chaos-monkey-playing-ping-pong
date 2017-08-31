@@ -9,8 +9,8 @@ CACHE='cache-redis.ping-pong.svc.cluster.local'
 #CACHE='localhost'
 
 
-queue_name = os.environ['QUEUE']
-other_queue = os.environ['OTHER_QUEUE']
+queue_name = os.environ['QUEUE_NAME']
+other_queue = os.environ['OTHER_QUEUE_NAME']
 
 key = queue_name
 

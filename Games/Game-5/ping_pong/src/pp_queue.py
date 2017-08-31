@@ -1,19 +1,20 @@
 import pika
 import sys
+import os
 
 PASSWORD = 'ping_pong'
 
-#HOST = 'queue-rabbitmq.ping-pong.svc.cluster.local'
-HOST = 'localhost'
+#HOST = 'localhost'
 PORT = 5672
 
 channel = 0
+host = os.getenv('QUEUE', 'localhost')
 
 def connect ():
 	credentials = pika.PlainCredentials('user', PASSWORD)
-	parameters = pika.ConnectionParameters(HOST, PORT, '/', credentials)
+	parameters = pika.ConnectionParameters(host, PORT, '/', credentials)
 
-	print ("Connecting to queue at " + HOST)
+	print ("Connecting to queue at " + host)
 	connection = pika.BlockingConnection(parameters)
 
 	return connection

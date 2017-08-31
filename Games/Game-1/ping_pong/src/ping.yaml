@@ -9,7 +9,9 @@ spec:
   - name: ping
     image: patrocinio/ping_pong
     env:
-      - name: QUEUE
+      - name: QUEUE_NAME
         value: "ping"
-      - name: OTHER_QUEUE
+      - name: OTHER_QUEUE_NAME
         value: "pong"
+      - name:  QUEUE 
+        value: "queue-rabbitmq.ping-pong.svc.cluster.local"
