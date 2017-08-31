@@ -17,8 +17,9 @@ def throw_ball(ball):
 def transformBall(body):
 	ball = body.decode('utf-8')
 	name, count = ball.split("-", 1)
+	count = int(count)
 	count += 1
-	return name + "-" + count
+	return name + "-" + str(count)
 
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
@@ -26,7 +27,7 @@ def callback(ch, method, properties, body):
 	ball = transformBall(body)
 	sys.stdout.flush ()
 	time.sleep(1)
-	throw_ball(body)
+	throw_ball(ball)
 
 print("I'm " + queue_name)
 

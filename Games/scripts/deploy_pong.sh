@@ -10,4 +10,4 @@ do
 done
 
 echo Deploying pong Pod
-kubectl create -f ping_pong/src/pong.yaml
+kubectl create -f ping_pong/deploy/pong.yaml
