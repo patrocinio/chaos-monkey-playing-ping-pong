@@ -20,4 +20,7 @@ spec:
           value: "ping"
         - name:  QUEUE 
           value: "queue-rabbitmq.ping-pong.svc.cluster.local"
+        - name: CACHE
+          value: "cache-redis.ping-pong.svc.cluster.local"
+
 
