@@ -14,9 +14,16 @@ def throw_ball(ball):
     	                  routing_key=other_queue,
         	              body=ball)
 
+def transformBall(body):
+	ball = body.decode('utf-8')
+	name, count = ball.split("-", 1)
+	count += 1
+	return name + "-" + count
+
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
 	message.send ("I received a %s ball" % body)
+	ball = transformBall(body)
 	sys.stdout.flush ()
 	time.sleep(1)
 	throw_ball(body)

@@ -2,7 +2,7 @@ import pp_queue
 import message
 
 QUEUE = 'ping'
-BALL = 'white'
+BALL = 'white-0'
 
 message.init ()
 
