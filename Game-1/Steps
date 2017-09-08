@@ -1,3 +1,5 @@
+cd Game-1
+
 1. create_namespace.sh 
 2. deploy_tiler.sh 
 2. deploy_queue.sh 
