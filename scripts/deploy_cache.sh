@@ -5,4 +5,4 @@ echo Deleting $CHART_NAME chart
 helm delete --purge $APP_NAME
 
 echo Deploying $CHART_NAME chart
-helm install --name $APP_NAME --set redisPassword=ping_pong stable/$CHART_NAME
+helm install --name $APP_NAME --set redisPassword=ping_pong,persistence.enabled=false stable/$CHART_NAME
