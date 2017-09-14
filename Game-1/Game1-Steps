@@ -1,5 +1,7 @@
 cd Game-1
 
+cfcadmin / Passw0rd!
+
 1. create_namespace.sh 
 2. deploy_tiler.sh 
 2. deploy_queue.sh 
