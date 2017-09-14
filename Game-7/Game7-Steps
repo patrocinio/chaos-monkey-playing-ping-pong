@@ -1,0 +1,9 @@
+1. build_ping_pong.sh
+2. build_clean_cache.sh
+3. destroy_ping_rs.sh
+4. destroy_pong_rs.sh
+5. deploy_clean_cache.sh
+6. deploy_ping.sh
+7. deploy_pong.sh
+8. destroy_ping_loop.sh
+
