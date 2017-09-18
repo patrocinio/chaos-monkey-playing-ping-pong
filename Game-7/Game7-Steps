@@ -3,7 +3,9 @@
 3. destroy_ping_rs.sh
 4. destroy_pong_rs.sh
 5. deploy_clean_cache.sh
-6. deploy_ping.sh
-7. deploy_pong.sh
-8. destroy_ping_loop.sh
+6. deploy_queue.sh
+7. deploy_commentator.sh
+8. deploy_ping.sh
+9. deploy_pong.sh
+10. destroy_ping_loop.sh
 
