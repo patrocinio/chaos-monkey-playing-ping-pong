@@ -15,5 +15,8 @@ spec:
         image: patrocinio/ping_pong_commentator
         env:
         - name:  QUEUE 
-          value: "queue-rabbitmq.ping-pong.svc.cluster.local"
+          value: "ibm-mq-ibm-mqadvanced-se.ping-pong.svc.cluster.local"
+        - name: PORT
+          value: "1414"
+
 
