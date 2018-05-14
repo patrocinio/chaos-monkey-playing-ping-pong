@@ -1,0 +1,1 @@
+helm install --name ping-pong ./ping-pong --tls
