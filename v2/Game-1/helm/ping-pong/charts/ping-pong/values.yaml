@@ -6,8 +6,8 @@ replicaCount: 1
 
 image:
   repository: patrocinio/ping_pong
-  tag: stable
-  pullPolicy: IfNotPresent
+  tag: latest
+  pullPolicy: Always
 
 ingress:
   enabled: false
@@ -39,3 +39,13 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env:
+  - name: QUEUE_NAME
+    value: "ping"
+  - name: OTHER_QUEUE_NAME
+    value: "pong"
+  - name:  QUEUE 
+    value: "ping-pong-rabbitmq-ha.ping-pong.svc.cluster.local"
+  - name: CACHE
+    value: "cache-redis.ping-pong.svc.cluster.local"
