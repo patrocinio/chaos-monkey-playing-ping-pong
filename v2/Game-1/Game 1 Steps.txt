@@ -1,2 +1,2 @@
-1. In a terminal, run deploy_Game_1.sh
-2. 
+1. In a terminal, run deployGame1.sh
+2. In a terminal, run deployThrowBall.sh
