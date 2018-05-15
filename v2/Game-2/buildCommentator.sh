@@ -1,7 +1,7 @@
-export IMAGE=ping_pong:Game-1
+export IMAGE=ping_pong_commentator:latest
 export IMAGE_PATH=patrocinio/$IMAGE
 
-cd src/ping_pong
+cd src/commentator
 
 cp -r ../common .
 

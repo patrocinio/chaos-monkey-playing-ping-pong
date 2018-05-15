@@ -5,9 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: patrocinio/ping_pong
-  tag: Game-1
-  pullPolicy: Always
+  repository: nginx
+  tag: stable
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
 
 ingress:
   enabled: false
@@ -40,12 +44,11 @@ tolerations: []
 
 affinity: {}
 
-env:
-  - name: QUEUE_NAME
-    value: "ping"
-  - name: OTHER_QUEUE_NAME
-    value: "pong"
-  - name:  QUEUE 
-    value: "ping-pong-rabbitmq-ha.ping-pong.svc.cluster.local"
-  - name: CACHE
-    value: "cache-redis.ping-pong.svc.cluster.local"
+ping:
+  name: ping
+  nameOverride: ping
+
+pong:
+  name: pong
+  nameOverride: pong
+  

@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: patrocinio/ping_pong
-  tag: Game-1
+  tag: latest
   pullPolicy: Always
 
 ingress:
@@ -42,9 +42,9 @@ affinity: {}
 
 env:
   - name: QUEUE_NAME
-    value: "ping"
-  - name: OTHER_QUEUE_NAME
     value: "pong"
+  - name: OTHER_QUEUE_NAME
+    value: "ping"
   - name:  QUEUE 
     value: "ping-pong-rabbitmq-ha.ping-pong.svc.cluster.local"
   - name: CACHE

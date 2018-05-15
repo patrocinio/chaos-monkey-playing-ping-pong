@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: patrocinio/ping_pong
-  tag: latest
+  tag: Game-1
   pullPolicy: Always
 
 ingress:
