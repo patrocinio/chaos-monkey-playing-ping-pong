@@ -1,4 +1,4 @@
-export IMAGE=ping_pong:Game-4
+export IMAGE=ping_pong:Game-5
 export IMAGE_PATH=patrocinio/$IMAGE
 
 cd src/ping_pong
