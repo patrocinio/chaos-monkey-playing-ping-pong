@@ -1,3 +1,5 @@
-1. deployGame1.sh
+1. deployGame3.sh
 2. displayCommentator.sh
 3. deployThrowBall.sh
+4. destroyPingLoop.sh
+
