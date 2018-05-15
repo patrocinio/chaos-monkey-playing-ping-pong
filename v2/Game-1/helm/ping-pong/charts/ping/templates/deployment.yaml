@@ -11,12 +11,12 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "ping-pong.name" . }}
+      app: {{ .Values.name }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "ping-pong.name" . }}
+        app: {{ .Values.name }}
         release: {{ .Release.Name }}
     spec:
       containers:

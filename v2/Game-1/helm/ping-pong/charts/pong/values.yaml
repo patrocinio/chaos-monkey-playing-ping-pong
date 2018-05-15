@@ -3,11 +3,9 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-name: pong
-nameOverride: pong
 
 image:
-  repository: patrocinio/ping_pongX
+  repository: patrocinio/ping_pong
   tag: latest
   pullPolicy: Always
 
