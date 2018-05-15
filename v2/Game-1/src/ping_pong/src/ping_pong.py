@@ -5,7 +5,7 @@ import os
 import time
 import redis
 
-CACHE='cache-redis.ping-pong.svc.cluster.local'
+CACHE='ping-pong-redis-ha-master-svc.ping-pong.svc.cluster.local'
 #CACHE='localhost'
 
 
@@ -67,7 +67,8 @@ def callback(ch, method, properties, body):
 def initCache():
 	print ("Initializing cache")
 	global red
-	red = redis.StrictRedis(host=CACHE, password='ping_pong')
+#	red = redis.StrictRedis(host=CACHE, password='ping_pong')
+	red = redis.StrictRedis(host=CACHE)
 
 print(welcome_message)
 

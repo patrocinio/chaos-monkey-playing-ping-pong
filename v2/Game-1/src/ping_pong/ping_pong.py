@@ -5,11 +5,11 @@ import os
 import time
 import redis
 
-CACHE='cache-redis.ping-pong.svc.cluster.local'
+CACHE='ping-pong-redis-ha-master-svc.ping-pong.svc.cluster.local'
 #CACHE='localhost'
 
 
-queue_name = os.environ['QUEUE_NAME']
+queue_name = os.environ['QUEUE_NAME']    
 other_queue = os.environ['OTHER_QUEUE_NAME']
 
 key = queue_name
