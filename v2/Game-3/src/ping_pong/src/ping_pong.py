@@ -14,7 +14,7 @@ other_queue = os.environ['OTHER_QUEUE_NAME']
 
 key = queue_name
 
-welcome_message = "==> I'm " +queue_name + " in v2/Game-1"
+welcome_message = "==> I'm " +queue_name + " in v2/Game-3"
 
 red = 0
 
