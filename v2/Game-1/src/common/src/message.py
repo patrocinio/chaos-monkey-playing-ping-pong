@@ -15,7 +15,6 @@ def init ():
 	messageChannel.queue_declare(queue=MESSAGE_QUEUE)
 
 def send (message):
-	init()
 	hostname = socket.gethostname()
 	print ("Sending message " + message + " from hostname " + hostname + 
 		" to queue " + MESSAGE_QUEUE)
