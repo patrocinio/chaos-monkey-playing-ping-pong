@@ -48,8 +48,6 @@ def checkCache():
 
 		throw_ball(ball)
 
-   
-
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
 	sys.stdout.flush ()
@@ -63,10 +61,8 @@ def callback(ch, method, properties, body):
 	time.sleep(1)
 
 	# Throw the ball
-	ball = transformBall(body)
-
-	throw_ball(ball)
-
+	# throw_ball(ball)
+	checkCache()
 
 def initCache():
 	print ("Initializing cache")
