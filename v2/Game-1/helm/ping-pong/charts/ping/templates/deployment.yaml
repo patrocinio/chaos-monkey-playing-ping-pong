@@ -1,9 +1,9 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "ping-pong.fullname" . }}
+  name: {{ .Values.name }}
   labels:
-    app: {{ template "ping-pong.name" . }}
+    app: {{ .Values.name }}
     chart: {{ template "ping-pong.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}

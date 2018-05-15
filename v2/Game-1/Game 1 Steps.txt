@@ -1,0 +1,2 @@
+1. In a terminal, run deploy_Game_1.sh
+2. 
