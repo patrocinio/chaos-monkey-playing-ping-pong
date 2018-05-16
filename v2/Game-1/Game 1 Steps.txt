@@ -1,3 +1,4 @@
-1. deployGame1.sh
-2. displayCommentator.sh
-3. deployThrowBall.sh
+1. configureHelmCLI.sh <ICP-master-IP>
+2. deployGame1.sh
+3. (Separate window) displayCommentator.sh
+4. deployThrowBall.sh
