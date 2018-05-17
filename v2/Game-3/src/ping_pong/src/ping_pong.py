@@ -27,6 +27,7 @@ def throw_ball(ball):
 	channel.basic_publish(exchange='',
     	                  routing_key=other_queue,
         	              body=ball)
+	
 def transformBall(body):
 	ball = body.decode('utf-8')
 	name, count = ball.split("-", 1)
