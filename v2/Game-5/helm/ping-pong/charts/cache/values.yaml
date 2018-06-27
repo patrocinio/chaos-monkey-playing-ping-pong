@@ -25,8 +25,8 @@ tolerations: []
 redis_image: quay.io/smile/redis:4.0.8r0
 ## replicas number for each component
 replicas:
-  servers: 3
-  sentinels: 3
+  servers: 1
+  sentinels: 1 
 servers:
   serviceType: ClusterIP  # [ClusterIP|LoadBalancer]
   annotations: {}
