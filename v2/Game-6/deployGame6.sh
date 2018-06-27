@@ -1,7 +1,2 @@
-NODE=$(kubectl get no -o json | \
-jq '.items[].metadata | select (.labels.role != "master") | select (.labels.proxy != "true") | .name' | \
-tr -d '"' |
-head -1)
-
-echo Draining node $NODE
-kubectl drain $NODE
+kubectl scale --replicas 2 deployment/ping
+kubectl scale --replicas 2 deployment/pong

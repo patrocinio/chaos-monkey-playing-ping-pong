@@ -1,4 +1,6 @@
-1. deployGame4.sh
+1. destroyPingLoop.sh
+
+After ball is lost
+
 2. deployThrowBall.sh
-3. destroyPingLoop.sh
 

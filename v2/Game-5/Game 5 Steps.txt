@@ -1,4 +1,5 @@
 1. deployGame5.sh
-2. deployThrowBall.sh
-3. destroyPingLoop.sh
+2. displayCommentator.sh
+3. deployThrowBall.sh
+4. destroyPingLoop.sh
 

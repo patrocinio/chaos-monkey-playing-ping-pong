@@ -14,7 +14,7 @@ other_queue = os.environ['OTHER_QUEUE_NAME']
 
 key = queue_name
 
-welcome_message = "==> I'm " +queue_name + " in v2/Game-5"
+welcome_message = "==> I'm " +queue_name + " in v2/Game-3"
 
 red = 0
 
@@ -27,6 +27,7 @@ def throw_ball(ball):
 	channel.basic_publish(exchange='',
     	                  routing_key=other_queue,
         	              body=ball)
+	
 def transformBall(body):
 	ball = body.decode('utf-8')
 	name, count = ball.split("-", 1)
@@ -48,6 +49,8 @@ def checkCache():
 
 		throw_ball(ball)
 
+   
+
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
 	sys.stdout.flush ()
@@ -61,8 +64,10 @@ def callback(ch, method, properties, body):
 	time.sleep(1)
 
 	# Throw the ball
-	# throw_ball(ball)
-	checkCache()
+	ball = transformBall(body)
+
+	throw_ball(ball)
+
 
 def initCache():
 	print ("Initializing cache")
