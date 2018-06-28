@@ -1,3 +1,3 @@
-1. deployGame6.sh
+1. deployGame8.sh
 2. (Another window) displayPods.sh
 
