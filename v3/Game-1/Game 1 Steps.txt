@@ -1,0 +1,5 @@
+1. configureHelmCLI.sh <ICP-master-IP>
+2. switchNamespace.sh ping-pong
+3. deployGame1.sh
+4. (Separate window) displayCommentator.sh
+5. deployThrowBall.sh
