@@ -13,14 +13,14 @@ CACHE='ping-pong-redis-ha-master-svc.ping-pong.svc.cluster.local'
 queue_name = os.environ['QUEUE_NAME']
 other_queue = os.environ['OTHER_QUEUE_NAME']
 
-key = getPodName()
-
 welcome_message = "==> I'm " +queue_name + " in v2/Game-5"
 
 red = 0
 
 def getPodName ():
 	return socket.gethostname()
+
+key = getPodName()
 
 def throw_ball(ball):
 	message.send ("Deleting key " + key)
