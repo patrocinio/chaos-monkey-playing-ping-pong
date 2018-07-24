@@ -6,7 +6,6 @@ MESSAGE_QUEUE = 'message'
 def callback(ch, method, properties, body):
 	print ("Message: %s" % body)
 	sys.stdout.flush ()
-	ch.basic_ack()
 
 print("Welcome to the Ping Pong solution")
 pp_queue.consume(MESSAGE_QUEUE, callback)

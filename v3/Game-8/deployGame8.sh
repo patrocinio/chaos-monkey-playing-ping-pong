@@ -1,7 +1,12 @@
-NODE=$(kubectl get no -o json | \
-jq '.items[].metadata | select (.labels.role != "master") | select (.labels.proxy != "true") | .name' | \
-tr -d '"' |
-head -1)
+NAME=ping-pong
+NAMESPACE=ping-pong
 
-echo Draining node $NODE 
-kubectl drain $NODE --force --delete-local-data
+#HELM_OPTIONS=--tls
+HELM_OPTIONS=
+
+echo Deleting $NAME
+helm delete $NAME --purge $HELM_OPTIONS
+
+echo Deploying $NAME
+helm install --name $NAME ./helm/ping-pong --namespace $NAMESPACE $HELM_OPTIONS
+

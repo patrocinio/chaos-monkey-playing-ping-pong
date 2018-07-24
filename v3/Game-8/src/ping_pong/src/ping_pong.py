@@ -13,7 +13,7 @@ CACHE='ping-pong-redis-ha-master-svc.ping-pong.svc.cluster.local'
 queue_name = os.environ['QUEUE_NAME']
 other_queue = os.environ['OTHER_QUEUE_NAME']
 
-welcome_message = "==> I'm " +queue_name + " in v2/Game-5"
+welcome_message = "==> I'm " +queue_name + " in v2/Game-8"
 
 red = 0
 
@@ -64,11 +64,13 @@ def callback(ch, method, properties, body):
 	# Sleep a second
 	time.sleep(1)
 
-	ch.basic_ack()
-
 	# Throw the ball
 	# throw_ball(ball)
 	checkCache()
+
+	# Ack the message
+	print ("Ack'ing the message")
+	ch.basic_ack(delivery_tag=method.delivery_tag)
 
 def initCache():
 	print ("Initializing cache")
