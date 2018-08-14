@@ -31,6 +31,7 @@ def throw_ball(ball):
 	channel.basic_publish(exchange='',
     	                  routing_key=other_queue,
         	              body=ball)
+	
 def transformBall(body):
 	ball = body.decode('utf-8')
 	name, count = ball.split("-", 1)
@@ -41,7 +42,7 @@ def transformBall(body):
 def checkCache():
 	value = red.get(key)
 	if value is None:
-		print ("Nothing in the cache")
+		print ("Nothing in the cache %s" % key)
 		message.send ("Nothing found in the cache")
 	else:
 		# Cleans the cache
@@ -54,11 +55,11 @@ def checkCache():
 
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
-	sys.stdout.flush ()
 	message.send ("I received a %s ball" % body)
 
 	# Store in cache
 	message.send ("Storing key " + key)
+	sys.stdout.flush ()
 	red.set(key, body)
 
 	# Sleep a second
