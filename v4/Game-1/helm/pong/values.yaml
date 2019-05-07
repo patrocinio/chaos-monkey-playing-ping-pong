@@ -4,6 +4,10 @@
 
 replicaCount: 1
 
+name: pong
+nameOverride: pong
+
+
 image:
   repository: patrocinio/ping_pong
   tag: Game-1
@@ -45,7 +49,7 @@ env:
     value: "pong"
   - name: OTHER_QUEUE_NAME
     value: "ping"
-  - name:  QUEUE 
+  - name:  QUEUE
     value: "ping-pong-rabbitmq-ha.ping-pong.svc.cluster.local"
   - name: CACHE
     value: "cache-redis.ping-pong.svc.cluster.local"

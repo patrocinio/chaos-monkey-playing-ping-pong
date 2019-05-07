@@ -8,8 +8,8 @@ HELM_OPTIONS=--tls
 echo Deleting $NAME
 helm delete $NAME --purge $HELM_OPTIONS
 
-echo Waiting 4 seconds...
-sleep 4
+echo Waiting 6 seconds...
+sleep 6
 
 echo Deploying $NAME
 helm install --name $NAME $CHART --namespace $NAMESPACE $HELM_OPTIONS

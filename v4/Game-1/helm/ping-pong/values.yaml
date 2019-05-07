@@ -43,7 +43,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-pong:
-  name: pong
-  nameOverride: pong
