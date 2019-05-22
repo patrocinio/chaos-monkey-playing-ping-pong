@@ -1,7 +1,7 @@
-#./deployChart.sh ping-pong
+./deployChart.sh ping-pong
 
-#echo Waiting 15 seconds
-#sleep 15
+echo Waiting 15 seconds
+sleep 15
 
 ./deployChart.sh pong
 ./deployChart.sh ping-player
