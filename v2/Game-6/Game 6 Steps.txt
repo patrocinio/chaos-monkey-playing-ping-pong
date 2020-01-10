@@ -1,4 +1,0 @@
-1. deployGame6.sh
-2. deployThrowBall.sh
-3. destroyPingLoop.sh
-

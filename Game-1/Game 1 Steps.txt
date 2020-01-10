@@ -1,0 +1,6 @@
+1. ./configureHelmCLI.sh
+2. ./createNamespace.sh
+3. ./switchNamespace.sh ping-pong
+4. ./deployGame1.sh
+5. (Separate window) stern ping-player
+6. ./deployThrowBall.sh

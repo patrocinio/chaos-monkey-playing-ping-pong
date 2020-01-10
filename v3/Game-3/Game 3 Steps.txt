@@ -1,3 +1,0 @@
-1. deployGame3.sh
-2. (Separate window) displayCommentator.sh
-3. deployThrowBall.sh

@@ -1,6 +1,0 @@
-1. deploy_cache.sh
-2. build_ping_pong.sh
-3. deploy_ping.sh
-4. deploy_pong.sh
-5. deploy_throw_ball.sh
-6. destroy_ping_loop.sh
