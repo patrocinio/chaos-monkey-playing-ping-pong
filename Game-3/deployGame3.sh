@@ -1,7 +1,7 @@
 NAME=ping-player
 NAMESPACE=ping-pong
 
-HELM_OPTIONS=--tls
+HELM_OPTIONS=--tiller-namespace=tiller
 #HELM_OPTIONS=
 
 echo Deleting $NAME

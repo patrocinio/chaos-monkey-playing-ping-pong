@@ -2,7 +2,7 @@ NAME=$1
 CHART=./helm/$1
 NAMESPACE=ping-pong
 
-HELM_OPTIONS=--tls
+HELM_OPTIONS=--tiller-namespace=tiller
 #HELM_OPTIONS=
 
 echo Deleting $NAME
