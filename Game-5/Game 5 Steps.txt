@@ -1,4 +1,4 @@
-1. deployGame5.sh
+1. ./deployGame5.sh
 2. stern ping-player
-3. deployThrowBall.sh
-4. destroyPingLoop.sh
+3. ./deployThrowBall.sh
+4. ./destroyPingLoop.sh
