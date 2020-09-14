@@ -1,10 +1,17 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "redis-ha.fullname" . }}-sentinel
   labels:
 {{ include "labels.standard" . | indent 4 }}
 spec:
+  selector:
+      matchLabels:
+        app: {{ template "redis-ha.name" . }}
+        release: {{ .Release.Name }}
+        component: sentinel
+        name: {{ template "redis-ha.fullname" . }}-sentinel
+
   replicas: {{ .Values.replicas.sentinels }}
   template:
     metadata:

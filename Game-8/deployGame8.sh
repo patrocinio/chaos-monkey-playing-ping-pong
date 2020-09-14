@@ -1,11 +1,11 @@
 NAME=ping-player
 NAMESPACE=ping-pong
 
-HELM_OPTIONS=--tiller-namespace=tiller
+HELM_OPTIONS=
 #HELM_OPTIONS=
 
 echo Deleting $NAME
-helm delete $NAME --purge $HELM_OPTIONS
+helm delete $NAME $HELM_OPTIONS
 
 echo Deploying $NAME
-helm install --name $NAME ./helm/ping-player --namespace $NAMESPACE $HELM_OPTIONS
+helm install $NAME ./helm/ping-player --namespace $NAMESPACE $HELM_OPTIONS
