@@ -3,4 +3,4 @@ NAME=ping-pong-rabbitmq-ha
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
 helm delete $NAME
-helm install $NAME bitnami/rabbitmq --set persistence.enabled=false,clustering.enabled=false,image.debug=true,rabbitmq.rbacEnabled=false,rabbitmq.plugins=nonexistent,rabbitmq.configuration=,rbac.create=false
+helm install $NAME bitnami/rabbitmq --set persistence.enabled=false,clustering.enabled=false,image.debug=true,rabbitmq.rbacEnabled=false,rabbitmq.plugins=nonexistent,rabbitmq.configuration=,rbac.create=false,auth.password=ping_pong

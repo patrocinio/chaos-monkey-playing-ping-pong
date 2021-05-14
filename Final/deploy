@@ -1,9 +1,11 @@
-NAME=ping-pong
 NAMESPACE=ping-pong
 
-# ./createNamespace.sh
+#./createNamespace.sh
 
 # ./install_queue
 
-helm delete $NAME --namespace $NAMESPACE
-helm install $NAME ./helm/ping-pong --namespace $NAMESPACE
+#helm delete ping-pong --namespace $NAMESPACE
+#helm install ping-pong ./helm/ping-pong --namespace $NAMESPACE
+
+helm delete ping-player --namespace $NAMESPACE
+helm install ping-player ./helm/ping-player --namespace $NAMESPACE
