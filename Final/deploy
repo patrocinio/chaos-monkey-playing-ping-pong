@@ -1,0 +1,9 @@
+NAME=ping-pong
+NAMESPACE=ping-pong
+
+# ./createNamespace.sh
+
+# ./install_queue
+
+helm delete $NAME --namespace $NAMESPACE
+helm install $NAME ./helm/ping-pong --namespace $NAMESPACE

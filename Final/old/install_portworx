@@ -1,0 +1,3 @@
+kubectl create -f https://install.portworx.com/?comp=pxoperator
+
+kubectl apply -f 'https://install.portworx.com/2.7?mc=false&kbver=1.21.0&oem=esse&user=f934ad1f-75e2-11ea-97e6-f6e09c7a4e5e&b=true&f=true&c=px-cluster-5229338e-69a8-4cea-b68b-2afb83ccdc22&stork=true&lh=true&st=k8s'
